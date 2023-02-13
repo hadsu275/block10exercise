@@ -1,5 +1,7 @@
 package DIT953.shapes;
 
+import java.awt.*;
+
 /**
  * Created by Niklas on 2016-02-14.
  */
@@ -21,13 +23,13 @@ public class Triangle extends Polygon {
         super(x,y);
     }
 
-    protected int[][] getOffsets() {
+    protected Point[] getOffsets() {
         int xOffset = getScaleX() / 2;
         int yOffset = getScaleY() / 3;
-        int[][] offsets = {
-                { 0,       -yOffset*2},
-                {-xOffset,  yOffset  },
-                { xOffset,  yOffset  }
+        Point[] offsets = {
+                new Point( 0,       -yOffset*2),
+                new Point(-xOffset,  yOffset  ),
+                new Point( xOffset,  yOffset  )
         };
         return offsets;
     }

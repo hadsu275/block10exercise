@@ -1,5 +1,7 @@
 package DIT953.shapes;
 
+import java.awt.*;
+
 /**
  * Created by Niklas on 2016-02-14.
  */
@@ -21,14 +23,14 @@ public class Rectangle extends Polygon {
         this(x,y,1,1);
     }
 
-    protected int[][] getOffsets() {
+    protected Point[] getOffsets() {
         int xOffset = getScaleX() / 2;
         int yOffset = getScaleY() / 2;
-        int[][] offsets = {
-                {-xOffset, -yOffset},
-                { xOffset, -yOffset},
-                { xOffset,  yOffset},
-                {-xOffset,  yOffset}
+        Point[] offsets = {
+                new Point(-xOffset, -yOffset),
+                new Point( xOffset, -yOffset),
+                new Point( xOffset,  yOffset),
+                new Point(-xOffset,  yOffset)
         };
         return offsets;
     }

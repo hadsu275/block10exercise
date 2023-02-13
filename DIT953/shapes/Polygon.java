@@ -25,12 +25,15 @@ public abstract class Polygon extends Shape {
 
     }
 
-    protected abstract int[][] getOffsets();
+    protected abstract Point[] getOffsets();
 
+    // TODO: 2: What design pattern does the getCorners() method
+    //  make use of, when calling the abstract getOffsets() method
+    //  internally?
     private List<Point> getCorners() {
         // Find the data for this particular polygon
         Point center = getCenterPoint();
-        int[][] offsets = getOffsets();
+        Point[] offsets = getOffsets();
         double alpha = Math.toRadians(getRotation());
         // Calculate points based on that data
         return calculateCornerPoints(center, offsets, alpha);
@@ -41,20 +44,20 @@ public abstract class Polygon extends Shape {
     *  mention any members (fields or methods) from the object itself.
     *  Hence we have chosen during refactoring to make these parts static. */
 
-    private static List<Point> calculateCornerPoints(Point center, int[][] offsets, double alpha) {
+    private static List<Point> calculateCornerPoints(Point center, Point[] offsets, double alpha) {
         List<Point> corners = new ArrayList<>(offsets.length) ;
-        for (int[] pointOffsets : offsets) {
+        for (Point pointOffsets : offsets) {
             Point newCorner = calculateCornerPoint(center, pointOffsets, alpha);
             corners.add(newCorner);
         }
         return corners;
     }
-    private static Point calculateCornerPoint(Point center, int[] offset, double alpha) {
+    private static Point calculateCornerPoint(Point center, Point offset, double alpha) {
         return rotatePoint(center, alpha,
                     movePoint(center, offset));
     }
-    private static Point movePoint(Point center, int[] offset) {
-        return new Point(center.x+ offset[0], center.y+ offset[1]);
+    private static Point movePoint(Point center, Point offset) {
+        return new Point(center.x+ offset.x, center.y+ offset.y);
     }
     private static Point rotatePoint(Point center, double alpha, Point newCorner) {
         double newX = center.x + (newCorner.x - center.x) * Math.cos(alpha) - (newCorner.y - center.y) * Math.sin(alpha);
