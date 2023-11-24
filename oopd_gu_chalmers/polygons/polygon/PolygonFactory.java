@@ -1,4 +1,4 @@
-package DIT953.polygons.polygon;
+package oopd_gu_chalmers.polygons.polygon;
 
 public class PolygonFactory {
     // TODO: 1a: In order to minimize dependencies:
@@ -10,8 +10,8 @@ public class PolygonFactory {
     // ... createSquare ...
 }
 // TODO: 1c: Why should this class reside inside the
-//  DIT953.polygons.polygon subpackage, and not in
-//  DIT953.polygons together with DrawPolygons?
+//  oopd_gu_chalmers.polygons.polygon subpackage, and not in
+//  oopd_gu_chalmers.polygons together with DrawPolygons?
 
 // TODO: 1d: Draw a UML class diagram over the new
 //  structure for the package. What is the public
