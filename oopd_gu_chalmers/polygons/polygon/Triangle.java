@@ -9,16 +9,16 @@ import java.awt.*;
 //  for the concrete subclasses, making them package-private,
 //  i.e. only available to other classes within the oopd_gu_chalmers.polygons.polygon
 //  package. Can you do that now?
-public class Triangle extends Polygon {
+class Triangle extends Polygon {
     public Triangle(int x, int y) {
         super(x,y);
     }
 
     @Override
     public void paint(Graphics g){
-        g.drawLine(centerPoint.x, centerPoint.y-10, centerPoint.x-10, centerPoint.y+10);
-        g.drawLine(centerPoint.x-10, centerPoint.y+10,
-                centerPoint.x+10, centerPoint.y+10);
-        g.drawLine(centerPoint.x+10, centerPoint.y+10, centerPoint.x, centerPoint.y-10);
+        g.drawLine(getCenterPoint().x, getCenterPoint().y-10, getCenterPoint().x-10, getCenterPoint().y+10);
+        g.drawLine(getCenterPoint().x-10, getCenterPoint().y+10,
+                getCenterPoint().x+10, getCenterPoint().y+10);
+        g.drawLine(getCenterPoint().x+10, getCenterPoint().y+10, getCenterPoint().x, getCenterPoint().y-10);
     }
 }

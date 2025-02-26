@@ -1,6 +1,21 @@
 package oopd_gu_chalmers.polygons.polygon;
 
+import java.awt.*;
+
 public class PolygonFactory {
+    public static Triangle crateTriangle(int x, int y){
+        return new Triangle(x, y);
+    }
+    public static Rectangle createRectangle(int x, int y){
+        return new Rectangle(x, y);
+
+    }
+    public static Square createSquare(int x, int y){
+        return new Square(x,y);
+
+    }
+
+
     // TODO: 1a: In order to minimize dependencies:
     //  What arguments should these methods take?
     //  What should their result types be?
@@ -9,9 +24,12 @@ public class PolygonFactory {
     // ... createRectangle ...
     // ... createSquare ...
 }
+
+
 // TODO: 1c: Why should this class reside inside the
 //  oopd_gu_chalmers.polygons.polygon subpackage, and not in
 //  oopd_gu_chalmers.polygons together with DrawPolygons?
+
 
 // TODO: 1d: Draw a UML class diagram over the new
 //  structure for the package. What is the public

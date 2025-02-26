@@ -7,12 +7,12 @@ import java.awt.*;
  * Created by Niklas on 2016-01-19.
  */
 public abstract class Polygon extends JComponent{
-    public Point centerPoint;
+    private Point centerPoint;
 
-    public Polygon(Point center){
+    Polygon(Point center){
         this.centerPoint = center;
     }
-    public Polygon(int x, int y){
+    Polygon(int x, int y){
         this(new Point(x,y));
     }
 
@@ -23,4 +23,8 @@ public abstract class Polygon extends JComponent{
     @Override
     public abstract void paint(Graphics g)//paint
     ;
+
+    public Point getCenterPoint() {
+        return centerPoint;
+    }
 }
